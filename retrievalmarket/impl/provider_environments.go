@@ -182,7 +182,7 @@ type providerStoreGetter struct {
 	p *Provider
 }
 
-func CheckCIDTransferability(payloadCID)(bool, error) {
+func CheckCIDTransferability(payloadCID cid.Cid)(bool, error) {
 	//BW: stub, force an error to show our exit case works.
 	return false, xerrors.Errorf("CID Transferability: BLOCKED")
 }
