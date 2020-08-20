@@ -182,6 +182,11 @@ type providerStoreGetter struct {
 	p *Provider
 }
 
+func CheckCIDTransferability(payloadCID)(bool, error) {
+	//BW: stub, force an error to show our exit case works.
+	return false, xerrors.Errorf("CID Transferability: BLOCKED")
+}
+
 func (psg *providerStoreGetter) Get(otherPeer peer.ID, dealID retrievalmarket.DealID) (*multistore.Store, error) {
 	var deal retrievalmarket.ProviderDealState
 	err := psg.p.stateMachines.GetSync(context.TODO(), retrievalmarket.ProviderDealIdentifier{Receiver: otherPeer, DealID: dealID}, &deal)

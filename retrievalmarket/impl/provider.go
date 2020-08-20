@@ -257,6 +257,13 @@ func (p *Provider) HandleQueryStream(stream rmnet.RetrievalQueryStream) {
 			answer.PieceCIDFound = retrievalmarket.QueryItemAvailable
 		}
 
+		canTransfer, err := CheckCIDTransferability(query.PayloadCID)
+		if(!canTransfer) {
+			log.Errorf("CID Un-transferable: ", err)
+			answer.Status = retrievalmarket.QueryResponseError
+			answer.Message = err.Error()
+		}
+
 		if err != nil && !xerrors.Is(err, retrievalmarket.ErrNotFound) {
 			log.Errorf("Retrieval query: GetRefs: %s", err)
 			answer.Status = retrievalmarket.QueryResponseError
