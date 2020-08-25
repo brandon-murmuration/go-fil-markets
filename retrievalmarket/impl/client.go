@@ -203,18 +203,15 @@ func (c *Client) Retrieve(ctx context.Context, payloadCID cid.Cid, params retrie
 		}
 	}
 
-	log.Print("I want to check my CID against my disallow list here!")
-	//BW: make sure the cid is tranferably by the clients ruleset (TODO)
-	//not sure if it makes sense to put this as part of the data transfer project
-	//or maybe this is where we somehow load our own?
-	//this is also an unlikely candidate to do this work with query coming first
-	//but i wanted to put this landmark  down.
-	// eg....
-	//canTransfer, err = c.dataTransfer.CheckCIDTransferability(payloadCID)
-	//if err != nil {
-	//	return 0, err
-	//}
+	log.Print("This is actually not the place to check against the CID")
+	log.Print("Here only a deal proposal has been created, but this is the start of the process")
+	log.Print("Again we should be more concerned with the handle query side of the situation...")
+	log.Print("The files we want to effect are definitely on the Provider portion of this code")
+	log.Print("But none of that comes back until this client actually receives it, so it's a fairly difficult test case still")
 
+	if true {
+		return 0,xerrors.Errorf("CID Transferability: BLOCKED")
+	}
 
 	dealID := retrievalmarket.DealID(next)
 	dealState := retrievalmarket.ClientDealState{
