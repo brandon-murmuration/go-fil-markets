@@ -134,6 +134,8 @@ The client a new `RetrievalQueryStream` for the chosen peer ID,
 and calls WriteQuery on it, which constructs a data-transfer message and writes it to the Query stream.
 */
 func (c *Client) Query(ctx context.Context, p retrievalmarket.RetrievalPeer, payloadCID cid.Cid, params retrievalmarket.QueryParams) (retrievalmarket.QueryResponse, error) {
+	panic("HELLO WORLD HELLO WORLD HELLO WORLD")
+	panic("QUERY QUERY QUERY QUERY QUERY QUERY")
 	err := c.addMultiaddrs(ctx, p)
 	if err != nil {
 		log.Warn(err)
