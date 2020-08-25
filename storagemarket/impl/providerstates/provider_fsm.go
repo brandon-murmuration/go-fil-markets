@@ -23,7 +23,7 @@ var ProviderEvents = fsm.Events{
 	fsm.Event(storagemarket.ProviderEventDealRejected).
 		FromMany(storagemarket.StorageDealValidating, storagemarket.StorageDealVerifyData, storagemarket.StorageDealAcceptWait).To(storagemarket.StorageDealRejecting).
 		Action(func(deal *storagemarket.MinerDeal, err error) error {
-			deal.Message = xerrors.Errorf("deal rejected: %w", err).Error()
+			deal.Message = xerrors.Errorf("WORLD: %w", err).Error()
 			return nil
 		}),
 	fsm.Event(storagemarket.ProviderEventRejectionSent).

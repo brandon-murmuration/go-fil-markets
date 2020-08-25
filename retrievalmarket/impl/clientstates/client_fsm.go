@@ -50,7 +50,7 @@ var ClientEvents = fsm.Events{
 	fsm.Event(rm.ClientEventDealRejected).
 		From(rm.DealStatusWaitForAcceptance).To(rm.DealStatusRejected).
 		Action(func(deal *rm.ClientDealState, message string) error {
-			deal.Message = fmt.Sprintf("deal rejected: %s", message)
+			deal.Message = fmt.Sprintf("HELLO! deal rejected: %s", message)
 			return nil
 		}),
 	fsm.Event(rm.ClientEventDealNotFound).
