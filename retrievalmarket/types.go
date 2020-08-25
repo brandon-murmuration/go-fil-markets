@@ -335,7 +335,7 @@ var DealPaymentUndefined = DealPayment{}
 
 var (
 	// ErrNotFound means a piece was not found during retrieval
-	ErrNotFound = errors.New("not found")
+	ErrNotFound = errors.New("TEST ERROR TEST ERROR")
 
 	// ErrVerification means a retrieval contained a block response that did not verify
 	ErrVerification = errors.New("Error when verify data")
