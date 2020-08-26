@@ -117,7 +117,7 @@ func NewClient(
 
 // FindProviders uses PeerResolver interface to locate a list of providers who may have a given payload CID.
 func (c *Client) FindProviders(payloadCID cid.Cid) []retrievalmarket.RetrievalPeer {
-		log.Print("LOG LOG LOG LOG HELLO FIND PROVIDERS FUNCTION")
+	log.Warn("LOG LOG LOG LOG HELLO FIND PROVIDERS FUNCTION")
 	peers, err := c.resolver.GetPeers(payloadCID)
 	if err != nil {
 		log.Errorf("failed to get peers: %s", err)
@@ -289,7 +289,7 @@ func (c *Client) RetrievalStatus(retrievalmarket.DealID) {
 
 // ListDeals lists in all known retrieval deals
 func (c *Client) ListDeals() map[retrievalmarket.DealID]retrievalmarket.ClientDealState {
-		log.Print("LIST DEAL LIST DEALS LIST DEAL LIST DEALS!!")
+	log.Warn("LIST DEAL LIST DEALS LIST DEAL LIST DEALS!!")
 	var deals []retrievalmarket.ClientDealState
 	_ = c.stateMachines.List(&deals)
 	dealMap := make(map[retrievalmarket.DealID]retrievalmarket.ClientDealState)
