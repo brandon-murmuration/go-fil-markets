@@ -171,6 +171,7 @@ func (c *Client) ListProviders(ctx context.Context) (<-chan storagemarket.Storag
 
 // ListDeals lists on-chain deals associated with this storage client
 func (c *Client) ListDeals(ctx context.Context, addr address.Address) ([]storagemarket.StorageDeal, error) {
+	log.Warn("some warning in list deals")
 	tok, _, err := c.node.GetChainHead(ctx)
 	if err != nil {
 		return nil, err
@@ -181,6 +182,7 @@ func (c *Client) ListDeals(ctx context.Context, addr address.Address) ([]storage
 
 // ListLocalDeals lists deals initiated by this storage client
 func (c *Client) ListLocalDeals(ctx context.Context) ([]storagemarket.ClientDeal, error) {
+	log.Warn("some warning in list local deals")
 	var out []storagemarket.ClientDeal
 	if err := c.statemachines.List(&out); err != nil {
 		return nil, err
