@@ -137,6 +137,7 @@ and calls WriteQuery on it, which constructs a data-transfer message and writes 
 func (c *Client) Query(ctx context.Context, p retrievalmarket.RetrievalPeer, payloadCID cid.Cid, params retrievalmarket.QueryParams) (retrievalmarket.QueryResponse, error) {
 	panic("HELLO WORLD HELLO WORLD HELLO WORLD")
 	panic("QUERY QUERY QUERY QUERY QUERY QUERY")
+	log.Warn("Hello World Query Function!")
 	err := c.addMultiaddrs(ctx, p)
 	if err != nil {
 		log.Warn(err)
@@ -190,13 +191,7 @@ From then on, the statemachine controls the deal flow in the client. Other compo
 Documentation of the client state machine can be found at https://godoc.org/github.com/filecoin-project/go-fil-markets/retrievalmarket/impl/clientstates
 */
 func (c *Client) Retrieve(ctx context.Context, payloadCID cid.Cid, params retrievalmarket.Params, totalFunds abi.TokenAmount, p retrievalmarket.RetrievalPeer, clientWallet address.Address, minerWallet address.Address, storeID *multistore.StoreID) (retrievalmarket.DealID, error) {
-
-	log.Print("This is actually not the place to check against the CID")
-	log.Print("Here only a deal proposal has been created, but this is the start of the process")
-	log.Print("Again we should be more concerned with the handle query side of the situation...")
-	log.Print("The files we want to effect are definitely on the Provider portion of this code")
-	log.Print("But none of that comes back until this client actually receives it, so it's a fairly difficult test case still")
-
+	log.Warn("Hello World Retrieve Function!")
 	if true {
 		return 0,xerrors.Errorf("CID Transferability: BLOCKED")
 	}
